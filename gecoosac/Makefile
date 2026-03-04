@@ -1,38 +1,38 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gecoosac
-PKG_VERSION:=2.2.20250515
+PKG_VERSION:=2.2.20251015
 PKG_RELEASE:=1
 
 ifeq ($(ARCH),aarch64)
-  PKG_ARCH:=ac_linux_arm64
-  PKG_HASH:=2c89f19574ef45e8941d646f138d1204c505c01a8b095c77b7d295ad9836e84a
+  PKG_ARCH:=ac_linux_arm64_upx
+  PKG_HASH:=f45a5c08a8aa43b3f2417d4d915fe313f7fed5e26e79af5a7c2761526d798ce1
 else ifeq ($(ARCH),arm)
-  PKG_ARCH:=ac_linux_arm
-  PKG_HASH:=9a8f39b38f8bd8c0904cf1679b82997916b675e617bbae149cf793df5061c12a
+  PKG_ARCH:=ac_linux_arm_upx
+  PKG_HASH:=d38bfb9a23c52409714ef00767e46634900d777030474bdedd6624700fb33bc1
 else ifeq ($(ARCH),mips)
-  PKG_ARCH:=ac_linux_mips
-  PKG_HASH:=88194fc6c6a9008a95f562709ce88d9f4779ab129d51da0937ced4f87ee385a4
+  PKG_ARCH:=ac_linux_mips_upx
+  PKG_HASH:=1bae6c82eb8273b2e3b10b845d2c00fc4b4e82a36b04412280c429a1f526aa7e
 else ifeq ($(ARCH),mipsel)
-  PKG_ARCH:=ac_linux_mipsle
-  PKG_HASH:=8963e6cec58f2167eda8c49d5887a15dad18dcf7b5c8090387bfa86c3e68b030
+  PKG_ARCH:=ac_linux_mipsle_upx
+  PKG_HASH:=07d486be3ae1a58f0de1ad91f18469d0a7d40efad53dcbd4b282c1d3b813d9e5
 else ifeq ($(ARCH),i386)
-  PKG_ARCH:=ac_linux_386
-  PKG_HASH:=652a0c0d8014ce36722b0125f18f0273609a6ef54182d26727cc0b155400c81d
+  PKG_ARCH:=ac_linux_386_upx
+  PKG_HASH:=3d8ce710280224a5f6fb206c81f97b63eb915d5e3142bbafbb0170e651512be8
 else ifeq ($(ARCH),x86_64)
-  PKG_ARCH:=ac_linux_amd64
-  PKG_HASH:=b81229e07fe2a4eca4259a27015b480e911e1c086f120cb3b5bdb4df2b961a9e
+  PKG_ARCH:=ac_linux_amd64_upx
+  PKG_HASH:=5752b1a133b24bada54bfa7fb3d9225d70af9174e07aab578948632808f6fed4
 else
   PKG_HASH:=dummy
 endif
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(ARCH_PACKAGES)
-PKG_SOURCE_URL:=https://github.com/lwb1978/gecoosac-core/releases/download/V$(PKG_VERSION)/$(PKG_ARCH)?
+PKG_SOURCE_URL:=https://github.com/openwrt-fork/openwrt-gecoosac/releases/download/V$(PKG_VERSION)/$(PKG_ARCH)?
 UNPACK_CMD=$(CP) $(DL_DIR)/$(PKG_SOURCE) $(PKG_BUILD_DIR)/$(PKG_NAME)
 
 PKG_LICENSE:=AGPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE
-PKG_MAINTAINER:=lwb1978 <lwb1978@gmail.com>
+PKG_MAINTAINER:=lwb1978 <lwb1978@gmail.com> openwrt-fork
 
 include $(INCLUDE_DIR)/package.mk
 
